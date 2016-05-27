@@ -1,0 +1,9 @@
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\bin\Debug\Pipelining.XML
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\bin\Debug\PipelineMsgQueue.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\bin\Debug\PipelineMsgQueue.pdb
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\bin\Debug\FSharp.Core.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\bin\Debug\Newtonsoft.Json.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\bin\Debug\FSharp.Core.xml
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\bin\Debug\Newtonsoft.Json.xml
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\obj\Debug\PipelineMsgQueue.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining\obj\Debug\PipelineMsgQueue.pdb

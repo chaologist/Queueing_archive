@@ -1,0 +1,13 @@
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\Pipelining.Tests.XML
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\Pipelining.Tests.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\Pipelining.Tests.pdb
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\FSharp.Core.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\FSharp.Core.xml
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\obj\Debug\Pipelining.Tests.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\obj\Debug\Pipelining.Tests.pdb
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\Newtonsoft.Json.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\Newtonsoft.Json.xml
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\obj\Debug\Pipelining.Tests.fsprojResolveAssemblyReference.cache
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\PipelineMsgQueue.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\Pipelining.Tests\bin\Debug\PipelineMsgQueue.pdb

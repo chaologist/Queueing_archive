@@ -1,0 +1,14 @@
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQMsqQueue.XML
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQMsqQueue.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQMsqQueue.pdb
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\FSharp.Core.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\PipelineMsgQueue.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQ.Client.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\Newtonsoft.Json.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\PipelineMsgQueue.pdb
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\FSharp.Core.xml
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQ.Client.xml
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\bin\Debug\Newtonsoft.Json.xml
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.fsprojResolveAssemblyReference.cache
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.dll
+c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.pdb
