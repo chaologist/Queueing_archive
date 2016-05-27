@@ -60,14 +60,6 @@ let resultReducer acc elem =
         | Success (x)->
             elem 
                            
-let Enqueuer messageConsumer (outQueues:seq<byte[]->byte[]>) (message:StepResult<QueueMessageStep<byte[]>,exn>)=
-    let queuers = outQueues |> Seq.map (fun q-> q |> (messageConsumer |> TraceQueueStep))
-    let result = queuers |> Seq.map (fun q-> async{ return (q message)})
-    let g = result |> Async.Parallel |> Async.RunSynchronously
-
-    g |> Array.fold resultReducer message
-
-
 
 let NewtonsoftJsonSerializer raw =
     Newtonsoft.Json.JsonConvert.SerializeObject (raw) |> System.Text.Encoding.UTF8.GetBytes  

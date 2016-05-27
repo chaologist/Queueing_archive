@@ -1,4 +1,12 @@
 ﻿module PipelineMsgQueue.Enqueuer
+open PipelineMsgQueue.Logging
+open PipelineMsgQueue.Stepper
+open PipelineMsgQueue.QueueProcess
 
-let f=0
+let Enqueuer messageConsumer (outQueues:seq<byte[]->byte[]>) (message:StepResult<QueueMessageStep<byte[]>,exn>)=
+    let queuers = outQueues |> Seq.map (fun q-> q |> (messageConsumer |> TraceQueueStep))
+    let result = queuers |> Seq.map (fun q-> async{ return (q message)})
+    let g = result |> Async.Parallel |> Async.RunSynchronously
+
+    g |> Array.fold resultReducer message
 
