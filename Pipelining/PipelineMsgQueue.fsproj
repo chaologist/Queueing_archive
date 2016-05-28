@@ -55,6 +55,7 @@
     <Compile Include="Stepper.fs" />
     <Compile Include="QueueProcess.fs" />
     <Compile Include="Enqueuer.fs" />
+    <Compile Include="QueueFlow.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
   </ItemGroup>

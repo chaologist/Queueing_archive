@@ -51,7 +51,7 @@ let ProcessMessage messageConsumer (deserialize:byte[]->'a) (serializer:'b->byte
     rawBytes |> pipe
 
 let AckerNacker acker nacker result =
-    either acker nacker result
+     either acker nacker result
 
 let resultReducer acc elem =
     match acc with 
