@@ -185,4 +185,31 @@ type QueueFlowTests() =
         ()
 
 
+    [<TestMethod>]
+    member this.QueueFlowCountLoggings()=
+        //arrange
+        let dict = new System.Collections.Generic.List<System.String>()
+        let logCounter = new InvocationCounter()
+        let logger msg=
+            dict.Add msg
+            logCounter.Invoke()
+            ()
+
+        let queueDef = {telemetryLogger=logger;work=makeTrivialQueue();ackerNacker=makeTrivialAckNack(); outQueues = [||] |> Seq.ofArray}
+
+        let flow = QueueMaker queueDef
+
+        //act
+        let res = makeTestMessage().Body |> flow
+
+        //assert
+        match res with
+            | Failure (e)->
+                Assert.Fail(e.Message)
+            | _->
+                ()
+        Assert.AreEqual(10,logCounter.Count())
+        ()
+
+
 
