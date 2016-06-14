@@ -1,11 +1,13 @@
 ﻿module PipelineMsgQueue.Logging
 
-type LogMessage = {OccuredOn:System.DateTime; Machine:string;Application:string}
-
+type LogEnvironment = {OccuredOn:System.DateTime; Machine:string;Application:string;}
+type StartEvent<'b> ={Environment:LogEnvironment;State:'b}
+type EndEvent = {Environment:LogEnvironment;Duration:int64}
+type ExceptionEvent ={Environment:LogEnvironment;Exception:System.Exception}
 type TraceEvent<'b>=
-    | Start of LogMessage*'b
-    | End of LogMessage*int64
-    | Exception of LogMessage*System.Exception
+    | Start of StartEvent<'b>
+    | End of EndEvent
+    | Exception of ExceptionEvent
 
 let serializeAndLog messageConsumer msg=
     let serialize = Newtonsoft.Json.JsonConvert.SerializeObject msg
@@ -16,14 +18,14 @@ let AddLogging messageConsumer f x=
     try
         let sw = new System.Diagnostics.Stopwatch()
         sw.Start()
-        logger (Start({OccuredOn = System.DateTime.UtcNow; Application=System.AppDomain.CurrentDomain.FriendlyName;Machine = System.Environment.MachineName},x))
+        logger (Start({Environment={OccuredOn = System.DateTime.UtcNow; Application=System.AppDomain.CurrentDomain.FriendlyName;Machine = System.Environment.MachineName};State=x}))
         
         let res = f x
         sw.Stop()
-        logger (End({OccuredOn = System.DateTime.UtcNow; Application=System.AppDomain.CurrentDomain.FriendlyName;Machine = System.Environment.MachineName},sw.ElapsedMilliseconds))
+        logger (End({Environment={OccuredOn = System.DateTime.UtcNow; Application=System.AppDomain.CurrentDomain.FriendlyName;Machine = System.Environment.MachineName}; Duration=sw.ElapsedMilliseconds}))
         res
     with e->
-        logger (Exception({OccuredOn = System.DateTime.UtcNow; Application=System.AppDomain.CurrentDomain.FriendlyName;Machine = System.Environment.MachineName},e))
+        logger (Exception({Environment={OccuredOn = System.DateTime.UtcNow; Application=System.AppDomain.CurrentDomain.FriendlyName;Machine = System.Environment.MachineName};Exception=e}))
         raise e
 
 let AddLoggingToTrace f x =
