@@ -12,6 +12,7 @@ c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\b
 c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.fsprojResolveAssemblyReference.cache
 c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.dll
 c:\users\tsigo\documents\visual studio 2015\Projects\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.pdb
+C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.fsprojResolveAssemblyReference.cache
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQMsqQueue.XML
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQMsqQueue.dll
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQMsqQueue.pdb
@@ -23,6 +24,5 @@ C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\PipelineMsgQueue
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\FSharp.Core.xml
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQ.Client.xml
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\Newtonsoft.Json.xml
-C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.fsprojResolveAssemblyReference.cache
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.dll
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.pdb

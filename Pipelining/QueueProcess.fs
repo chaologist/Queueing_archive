@@ -21,17 +21,17 @@ let NextStep currentStep =
     |MessageSent->AckNacked
     |AckNacked->AckNacked
 
-type QueueMessageStep<'a>= {Id:System.Guid;StartedOnUtc:System.DateTime;Body:'a}
+type QueueMessageStep<'a>= {Id:System.Guid;StartedOnUtc:System.DateTime;Body:'a;CurrentStep:QueueSteps}
 
 let PerformQueueStep f step=
-    {Id=step.Id;StartedOnUtc=step.StartedOnUtc;Body=f step.Body}
+    {Id=step.Id;StartedOnUtc=step.StartedOnUtc;Body=f step.Body;CurrentStep=NextStep step.CurrentStep}
 
 let BuildMessage resultsSerializedMessage=
     let bodyArray = [|resultsSerializedMessage.Id.ToByteArray(); resultsSerializedMessage.StartedOnUtc.Ticks |> System.BitConverter.GetBytes  ;resultsSerializedMessage.Body|] |> Seq.concat 
-    {Id=resultsSerializedMessage.Id;StartedOnUtc=resultsSerializedMessage.StartedOnUtc;Body = bodyArray|>Array.ofSeq}
+    {Id=resultsSerializedMessage.Id;StartedOnUtc=resultsSerializedMessage.StartedOnUtc;Body = bodyArray|>Array.ofSeq;CurrentStep=MessageBuilt}
 
 let ParseMessage rawBytes=
-    {Id=new System.Guid(rawBytes|>Array.take 16);StartedOnUtc=new System.DateTime(System.BitConverter.ToInt64(rawBytes|>Array.skip 16|>Array.take 8,0));Body = rawBytes|>Array.skip 24}
+    {Id=new System.Guid(rawBytes|>Array.take 16);StartedOnUtc=new System.DateTime(System.BitConverter.ToInt64(rawBytes|>Array.skip 16|>Array.take 8,0));Body = rawBytes|>Array.skip 24; CurrentStep=MessageParsed}
 
 let TraceAndStep messageConsumer f x =
     x|>(f |>(messageConsumer|> AddLogging) |> DoStep )

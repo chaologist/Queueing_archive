@@ -8,7 +8,7 @@ type EnqueuerTests() =
     [<TestMethod>]
     member this.EnqueuerSingleSuccess()=
         //arrange
-        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100}
+        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100;CurrentStep=MessageBuilt}
         let pipelineResult = Success(start)
         let memory = new System.Collections.Generic.Dictionary<int,int>();
         memory.Add(1,0)
@@ -30,7 +30,7 @@ type EnqueuerTests() =
     [<TestMethod>]
     member this.EnqueuerSingleFailure()=
         //arrange
-        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100}
+        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100;CurrentStep=MessageBuilt}
         let pipelineResult = Failure(new System.Exception())
         let memory = new System.Collections.Generic.Dictionary<int,int>();
         memory.Add(1,0)
@@ -52,7 +52,7 @@ type EnqueuerTests() =
     [<TestMethod>]
     member this.EnqueuerMultipleSuccess()=
         //arrange
-        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100}
+        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100;CurrentStep=MessageBuilt}
         let pipelineResult = Success(start)
         let rnd = new System.Random()
         let count = rnd.Next(5,10)
@@ -77,7 +77,7 @@ type EnqueuerTests() =
     [<TestMethod>]
     member this.EnqueuerMultipleSuccessDelays()=
         //arrange
-        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100}
+        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100;CurrentStep=MessageBuilt}
         let pipelineResult = Success(start)
         let rnd = new System.Random()
         let count = rnd.Next(5,10)

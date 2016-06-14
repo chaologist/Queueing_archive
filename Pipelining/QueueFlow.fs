@@ -6,6 +6,9 @@ type QueueWork<'a,'b> = {deserializer:byte[]->'a;serializer:'b->byte[];work:'a->
 type AckerOrNacker<'b> = {acker:'b->StepResult<'b,exn>;nacker:exn->StepResult<'b,exn>}
 type QueueDefinition<'a,'b> = {telemetryLogger:string->unit; work:QueueWork<'a,'b>; ackerNacker:AckerOrNacker<QueueMessageStep<byte[]>>; outQueues:seq<byte[]->byte[]> }
 
+let MakeJsonSerializedQueueWork work =
+    {deserializer=NewtonsoftJsonDeserializer;serializer=NewtonsoftJsonSerializer; work=work}
+
 let QueueMaker<'a,'b> (definition:QueueDefinition<'a,'b>)=
     let outboundQueuer = Enqueuer definition.telemetryLogger definition.outQueues
     let queueProcess = ProcessMessage  definition.telemetryLogger definition.work.deserializer definition.work.serializer definition.work.work 

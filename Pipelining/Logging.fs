@@ -29,4 +29,8 @@ let AddLogging messageConsumer f x=
 let AddLoggingToTrace f x =
     AddLogging (fun m->System.Diagnostics.Trace.WriteLine m) f x
 
+let CreateTraceMessageConsumer () =
+    fun msg -> System.Diagnostics.Trace.WriteLine msg
+
+
 

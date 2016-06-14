@@ -48,6 +48,7 @@
     <Compile Include="LoggerTests.fs" />
     <Compile Include="StepperTests.fs" />
     <Compile Include="QueueProcessTests.fs" />
+    <Compile Include="QueueFlowTests.fs" />
     <Compile Include="EnqueuerTests.fs" />
     <None Include="Script.fsx" />
   </ItemGroup>

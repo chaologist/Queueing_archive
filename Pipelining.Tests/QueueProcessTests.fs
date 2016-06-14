@@ -6,7 +6,7 @@ type QueueProcessTests() =
     [<TestMethod>]
     member this.QueueMessageSerialize()=
         //arrange
-        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100}
+        let start = {Id=System.Guid.NewGuid(); StartedOnUtc = System.DateTime.UtcNow; Body=Array.zeroCreate<byte> 100; CurrentStep=MessageBuilt}
         //act
         let serialize = BuildMessage start
         let deserialize = ParseMessage serialize.Body
