@@ -2,8 +2,8 @@
 
 type LogMessage = {OccuredOn:System.DateTime; Machine:string;Application:string}
 
-type TraceEvent=
-    | Start of LogMessage
+type TraceEvent<'b>=
+    | Start of LogMessage*'b
     | End of LogMessage*int64
     | Exception of LogMessage*System.Exception
 
@@ -16,7 +16,7 @@ let AddLogging messageConsumer f x=
     try
         let sw = new System.Diagnostics.Stopwatch()
         sw.Start()
-        logger (Start({OccuredOn = System.DateTime.UtcNow; Application=System.AppDomain.CurrentDomain.FriendlyName;Machine = System.Environment.MachineName}))
+        logger (Start({OccuredOn = System.DateTime.UtcNow; Application=System.AppDomain.CurrentDomain.FriendlyName;Machine = System.Environment.MachineName},x))
         
         let res = f x
         sw.Stop()
