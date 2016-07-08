@@ -3,8 +3,8 @@ open PipelineMsgQueue.Enqueuer
 open PipelineMsgQueue.QueueProcess
 open PipelineMsgQueue.Stepper
 type QueueWork<'a,'b> = {deserializer:byte[]->'a;serializer:'b->byte[];work:'a->'b}
-type AckerOrNacker<'b> = {acker:'b->StepResult<'b,exn>;nacker:exn->StepResult<'b,exn>}
-type QueueDefinition<'a,'b> = {telemetryLogger:string->unit; work:QueueWork<'a,'b>; ackerNacker:AckerOrNacker<QueueMessageStep<byte[]>>; outQueues:seq<byte[]->byte[]> }
+type AckerOrNacker = {acker:unit->unit;nacker:unit->unit} //need to change this definition...
+type QueueDefinition<'a,'b> = {telemetryLogger:string->unit; work:QueueWork<'a,'b>; ackerNacker:AckerOrNacker; outQueues:seq<byte[]->byte[]> }
 
 let MakeJsonSerializedQueueWork work =
     {deserializer=NewtonsoftJsonDeserializer;serializer=NewtonsoftJsonSerializer; work=work}

@@ -35,7 +35,7 @@ type LoggerTests() =
         let messages = new System.Collections.Generic.List<string>()
         let consumer msg=
             messages.Add msg
-        //trivial work
+        //work that throws
         let work x = 
             raise (new System.Exception())
 

@@ -26,10 +26,10 @@ type QueueFlowTests() =
         x
     let deadend msg=
         ()
-    let trivialAck x =
-        Success(x)
-    let trivialNack exn=
-        Failure(exn)
+    let trivialAck () =
+         ()
+    let trivialNack ()=
+        ()
     let makeTrivialAckNack()=
         {acker=trivialAck; nacker=trivialNack}
 
@@ -113,9 +113,9 @@ type QueueFlowTests() =
     member this.QueueFlowAcks()=
         //arrange
         let ackCounter = new InvocationCounter()
-        let acker(x)=
+        let acker()=
             ackCounter.Invoke()
-            Success(x)
+            ()
 
         let queueDef = {telemetryLogger=deadend;work=makeTrivialQueue();ackerNacker={acker=acker;nacker=trivialNack}; outQueues = [||] |> Seq.ofArray}
 
@@ -137,9 +137,9 @@ type QueueFlowTests() =
     member this.QueueFlowNoNAckOnSuccess()=
         //arrange
         let nackCounter = new InvocationCounter()
-        let nacker(exn)=
+        let nacker()=
             nackCounter.Invoke()
-            Failure(exn)
+            ()
 
         let queueDef = {telemetryLogger=deadend;work=makeTrivialQueue();ackerNacker={acker=trivialAck;nacker=nacker}; outQueues = [||] |> Seq.ofArray}
 
@@ -161,9 +161,9 @@ type QueueFlowTests() =
     member this.QueueFlowNAckOnFailure()=
         //arrange
         let nackCounter = new InvocationCounter()
-        let nacker(exn)=
+        let nacker()=
             nackCounter.Invoke()
-            Failure(exn)
+            ()
 
         let w = {deserializer=minimalDeserializer;serializer=minimalSerializer; work=fun x->
                                                                                         raise (new System.Exception ("ZOMG!!1"))}
@@ -208,7 +208,27 @@ type QueueFlowTests() =
                 Assert.Fail(e.Message)
             | _->
                 ()
-        Assert.AreEqual(10,logCounter.Count())
+        Assert.AreEqual(12,logCounter.Count())
+        ()
+
+    [<TestMethod>]
+    member this.QueueFlowReachesEnd()=
+        //arrange
+        let queueWorkDef=makeTrivialQueue()
+        let queueDef = {telemetryLogger=deadend;work=queueWorkDef;ackerNacker=makeTrivialAckNack(); outQueues = [||] |> Seq.ofArray}
+
+        let flow = QueueMaker queueDef
+
+        //act
+        let res = makeTestMessage().Body |> flow
+
+        //assert
+        match res with
+            | Failure (e)->
+                Assert.Fail(e.Message)
+            | Success(qmsg)->
+                Assert.AreEqual (AckNacked,qmsg.CurrentStep)                
+                ()
         ()
 
 

@@ -50,8 +50,15 @@ let ProcessMessage messageConsumer (deserialize:byte[]->'a) (serializer:'b->byte
     let pipe=EntryPoint >> msgParse >> deser >> wrk >> ser >> mrgBuild
     rawBytes |> pipe
 
-let AckerNacker acker nacker result =
-     either acker nacker result
+let AckerNacker (acker:unit->unit) (nacker:unit->unit) (result:StepResult<QueueMessageStep<byte[]>,exn>) =
+    match result with
+        | Success (msg)->
+            acker()
+            Success (PerformQueueStep (fun x->x) msg)
+        | Failure (e)->
+            nacker()
+            Failure (e)
+
 
 let resultReducer acc elem =
     match acc with 

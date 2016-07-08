@@ -61,10 +61,10 @@ let MakeRabbitClient clientConfig=
     
     consumer.Received.Add(fun ea->
                                 let ackNack = {acker=(fun x->channel.BasicAck(ea.DeliveryTag,false)
-                                                             Success(x)
+                                                             ()
                                                         );nacker=(fun x->
                                                                             ignore(channel.BasicNack(ea.DeliveryTag,false,true))
-                                                                            Failure(x)
+                                                                            ()
                                                         )
                                                }
                                 let definition= {telemetryLogger=msgToTrace;work=clientConfig.Work;outQueues=[outputEnqueuer];ackerNacker = ackNack}                            
