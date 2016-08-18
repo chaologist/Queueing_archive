@@ -26,3 +26,6 @@ C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\RabbitMQ.Client.
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\Newtonsoft.Json.xml
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.dll
 C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\obj\Debug\RabbitMQMsqQueue.pdb
+C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\Messaging.Queueing.dll
+C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\Messaging.Queueing.pdb
+C:\Users\tsigo\Source\Repos\Queueing\RabbitMQMsqQueue\bin\Debug\Messaging.Queueing.xml

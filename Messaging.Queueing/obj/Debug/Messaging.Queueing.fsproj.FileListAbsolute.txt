@@ -1,0 +1,7 @@
+C:\Users\tsigo\Source\Repos\Queueing\Messaging.Queueing\bin\Debug\Messaging.Queueing.XML
+C:\Users\tsigo\Source\Repos\Queueing\Messaging.Queueing\bin\Debug\Messaging.Queueing.dll
+C:\Users\tsigo\Source\Repos\Queueing\Messaging.Queueing\bin\Debug\Messaging.Queueing.pdb
+C:\Users\tsigo\Source\Repos\Queueing\Messaging.Queueing\bin\Debug\FSharp.Core.dll
+C:\Users\tsigo\Source\Repos\Queueing\Messaging.Queueing\bin\Debug\FSharp.Core.xml
+C:\Users\tsigo\Source\Repos\Queueing\Messaging.Queueing\obj\Debug\Messaging.Queueing.dll
+C:\Users\tsigo\Source\Repos\Queueing\Messaging.Queueing\obj\Debug\Messaging.Queueing.pdb

@@ -15,6 +15,10 @@ let QueueMaker<'a,'b> (definition:QueueDefinition<'a,'b>)=
     let ackNack = AckerNacker definition.ackerNacker.acker definition.ackerNacker.nacker
     //need to work on acknack...  needs to take messages
     let flow bytes = 
-        bytes |> queueProcess |> outboundQueuer |> (ackNack)
+        bytes |> queueProcess |> outboundQueuer |> ackNack
     
     flow
+
+let EnqueuerMaker <'a> logger outQueues =
+    let def = {telemetryLogger = logger; work=MakeJsonSerializedQueueWork (fun (x:'a)->x); ackerNacker={acker=(fun () -> ()); nacker=(fun () -> ())}; outQueues =outQueues} 
+    QueueMaker def

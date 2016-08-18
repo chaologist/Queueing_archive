@@ -21,6 +21,5 @@ C:\Users\tsigo\Source\Repos\Queueing\Pipelining.Tests\bin\Debug\Newtonsoft.Json.
 C:\Users\tsigo\Source\Repos\Queueing\Pipelining.Tests\bin\Debug\PipelineMsgQueue.pdb
 C:\Users\tsigo\Source\Repos\Queueing\Pipelining.Tests\bin\Debug\FSharp.Core.xml
 C:\Users\tsigo\Source\Repos\Queueing\Pipelining.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\tsigo\Source\Repos\Queueing\Pipelining.Tests\obj\Debug\Pipelining.Tests.fsprojResolveAssemblyReference.cache
 C:\Users\tsigo\Source\Repos\Queueing\Pipelining.Tests\obj\Debug\Pipelining.Tests.dll
 C:\Users\tsigo\Source\Repos\Queueing\Pipelining.Tests\obj\Debug\Pipelining.Tests.pdb

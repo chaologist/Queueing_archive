@@ -51,6 +51,8 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="types.fs" />
+    <Compile Include="internalShared.fs" />
     <Compile Include="Library1.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
@@ -67,6 +69,11 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+    <ProjectReference Include="..\Messaging.Queueing\Messaging.Queueing.fsproj">
+      <Name>Messaging.Queueing</Name>
+      <Project>{d633ed6d-e678-4c1d-a868-e5c6c92d79d6}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\Pipelining\PipelineMsgQueue.fsproj">
       <Name>PipelineMsgQueue</Name>
       <Project>{8d7b4a0e-0848-42f3-b706-d304ea1d469e}</Project>

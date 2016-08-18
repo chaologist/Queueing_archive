@@ -39,6 +39,11 @@ let TraceAndStep messageConsumer f x =
 let TraceQueueStep messageConsumer f x=
     x|> (f |>PerformQueueStep |> (messageConsumer|>TraceAndStep))
 
+let buildOutbound messageConsumer (serializer:'b->byte[]) value=
+    let ser = serializer|> (messageConsumer |>TraceQueueStep)
+    let mrgBuild = BuildMessage |> (messageConsumer |>TraceAndStep)
+    value |> (ser>>mrgBuild)
+
 //this the generic function to transform a raw byte[] from the inbound queuu into the serialize message for the outbound queue
 let ProcessMessage messageConsumer (deserialize:byte[]->'a) (serializer:'b->byte[]) (transformer:'a->'b) (rawBytes:byte[]) =
     let msgParse = ParseMessage |> (messageConsumer |> TraceAndStep) 
@@ -46,9 +51,11 @@ let ProcessMessage messageConsumer (deserialize:byte[]->'a) (serializer:'b->byte
     let wrk = transformer|> (messageConsumer |>TraceQueueStep)
     let ser = serializer|> (messageConsumer |>TraceQueueStep)
     let mrgBuild = BuildMessage |> (messageConsumer |>TraceAndStep)
+    let output = buildOutbound messageConsumer serializer
 
-    let pipe=EntryPoint >> msgParse >> deser >> wrk >> ser >> mrgBuild
+    let pipe=EntryPoint >> msgParse >> deser >> wrk >> output
     rawBytes |> pipe
+
 
 let AckerNacker (acker:unit->unit) (nacker:unit->unit) (result:StepResult<QueueMessageStep<byte[]>,exn>) =
     match result with
